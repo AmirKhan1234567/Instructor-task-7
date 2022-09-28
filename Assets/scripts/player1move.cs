@@ -53,7 +53,7 @@ public class player1move : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-           // Destroy(gameObject);
+         
             spawn1manager.Instance.healthloss();
             spawn1manager.Instance.playAudio();
             Instantiate(explosionParticle, transform.position, transform.rotation);
@@ -61,14 +61,13 @@ public class player1move : MonoBehaviour
         }
         else if(other.gameObject.CompareTag("wall"))
         {
-            //Destroy(gameObject);
+           
             spawn1manager.Instance.healthloss();
             spawn1manager.Instance.playAudio();
             Instantiate(explosionParticle, transform.position, transform.rotation);
             transform.position = startpos;
         }
+        
     }
-   
-    
 }
 

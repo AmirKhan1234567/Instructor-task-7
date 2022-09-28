@@ -9,8 +9,6 @@ public class Enemy1move : MonoBehaviour
     public UnityEngine.AI.NavMeshAgent agent;
     private Vector3 playerpos;
     public static Enemy1move Instance;
-
-    // Start is called before the first frame update
     void Awake()
     {
         Instance = this;
@@ -19,8 +17,6 @@ public class Enemy1move : MonoBehaviour
     {
         
     }
-
-    // Update is called once per frame
     void Update()
     {
 

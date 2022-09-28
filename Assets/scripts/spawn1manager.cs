@@ -17,8 +17,7 @@ public class spawn1manager : MonoBehaviour
     public int score = 0;
     public TMP_Text healths;
     public int health = 10;
-
-    // Start is called before the first frame update
+    public GameObject mine;
     private void Awake()
     {
         Instance = this;
@@ -27,8 +26,6 @@ public class spawn1manager : MonoBehaviour
     {
         currentscore.text = score.ToString();
     }
-
-    // Update is called once per frame
     void Update()
     {
         enemyCount = FindObjectsOfType<Enemy1move>().Length;
@@ -39,6 +36,13 @@ public class spawn1manager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(bomb, new Vector3(player1move.instance.transform.position.x, player1move.instance.transform.position.y + 2, player1move.instance.transform.position.z), player1move.instance.transform.rotation);
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+           
+                    Instantiate(mine, new Vector3(player1move.instance.transform.position.x+1, player1move.instance.transform.position.y, player1move.instance.transform.position.z+1), player1move.instance.transform.rotation);
+                
+            
         }
     }
     void SpawnEnemyWave(int enemytospawn)
@@ -69,5 +73,9 @@ public class spawn1manager : MonoBehaviour
         health -= 1;
         healths.text = health.ToString();
 
+    }
+    public void enemyfire()
+    {
+        Instantiate(bomb, new Vector3(player1move.instance.transform.position.x, player1move.instance.transform.position.y + 2, player1move.instance.transform.position.z), player1move.instance.transform.rotation);
     }
 }
